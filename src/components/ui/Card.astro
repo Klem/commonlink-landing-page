@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const hasIcon = Astro.slots.has('icon');
+---
+
+<div class:list={['bg-warm-gray rounded-xl p-6 md:p-8 border border-dark/10', className]}>
+  {hasIcon && (
+    <div class="mb-4">
+      <slot name="icon" />
+    </div>
+  )}
+  <h3 class="font-manrope font-semibold text-petrol text-lg md:text-xl mb-2">
+    <slot name="title" />
+  </h3>
+  <div class="font-luciole text-dark/80 text-base leading-relaxed">
+    <slot name="content" />
+  </div>
+</div>

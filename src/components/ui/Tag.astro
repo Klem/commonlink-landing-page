@@ -1,0 +1,38 @@
+---
+interface Props {
+  variant?: 'status' | 'neutral';
+  class?: string;
+}
+
+const { variant = 'status', class: className } = Astro.props;
+
+const baseStyles = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-manrope font-medium text-xs md:text-sm';
+
+const variantStyles = {
+  status: 'bg-mint/10 text-mint',
+  neutral: 'bg-dark/5 text-dark/60',
+};
+
+const classes = [baseStyles, variantStyles[variant], className].filter(Boolean).join(' ');
+---
+
+<span class={classes}>
+  {variant === 'status' && (
+    <svg
+      class="w-3.5 h-3.5"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M2.5 7.5L5.5 10.5L11.5 4.5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )}
+  <slot />
+</span>
