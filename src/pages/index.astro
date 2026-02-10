@@ -1,9 +1,22 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Problem from '../components/Problem.astro';
+import Solution from '../components/Solution.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Traceability from '../components/Traceability.astro';
+import Credibility from '../components/Credibility.astro';
+import FAQ from '../components/FAQ.astro';
 ---
 
 <Base>
-  <main class="min-h-screen flex items-center justify-center">
-    <h1 class="font-manrope text-petrol text-4xl font-bold">Lien commun</h1>
+  <main>
+    <Hero />
+    <Problem />
+    <Solution />
+    <HowItWorks />
+    <Traceability />
+    <Credibility />
+    <FAQ />
   </main>
 </Base>

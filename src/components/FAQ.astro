@@ -1,0 +1,71 @@
+---
+import SectionWrapper from './ui/SectionWrapper.astro';
+
+const faqs = [
+  {
+    question: "Qu'est-ce qui est tracé au lancement ?",
+    answer: "Les dépenses des associations partenaires liées aux projets publiés.",
+  },
+  {
+    question: "Est-ce de la crypto ?",
+    answer: "Non. Vous donnez en euros, vous consultez en euros. La technologie sert à sécuriser des preuves vérifiables, sans jargon ni manipulation. Elle reste invisible pour l'utilisateur.",
+  },
+  {
+    question: "Qui peut devenir association partenaire ?",
+    answer: "Les associations de 0 à 5 salariés, après candidature et vérification. Le processus d'intégration est simplifié.",
+  },
+  {
+    question: "Y a-t-il des frais ?",
+    answer: "Le modèle tarifaire est en cours de définition. Nous communiquerons une grille claire avant le lancement.",
+  },
+  {
+    question: "Comment sont gérées mes données ?",
+    answer: "En conformité avec le RGPD. Notre politique de confidentialité sera disponible avant toute collecte de données.",
+  },
+  {
+    question: "Pourquoi un lancement en T2 2026 ?",
+    answer: "Nous finalisons la structure juridique, les pilotes techniques et les premiers partenariats associatifs.",
+  },
+];
+---
+
+<SectionWrapper id="faq" background="white">
+  <h2 class="text-center font-manrope font-semibold text-petrol text-2xl md:text-[30px] leading-tight mb-12">
+    Questions fréquentes
+  </h2>
+
+  <div class="max-w-3xl mx-auto">
+    {faqs.map((faq) => (
+      <details class="group border-b border-dark/10">
+        <summary class="flex items-center justify-between font-manrope font-medium text-petrol text-base md:text-lg py-4 cursor-pointer list-none focus:outline focus:outline-3 focus:outline-petrol focus:outline-offset-2 rounded">
+          <span>{faq.question}</span>
+          <svg
+            class="w-5 h-5 text-petrol flex-shrink-0 ml-4 transition-transform duration-200 group-open:rotate-180"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 7.5L10 12.5L15 7.5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </summary>
+        <div class="font-luciole text-dark/70 text-base leading-relaxed pb-4">
+          {faq.answer}
+        </div>
+      </details>
+    ))}
+  </div>
+</SectionWrapper>
+
+<style>
+  /* Supprime le marqueur natif de details/summary */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

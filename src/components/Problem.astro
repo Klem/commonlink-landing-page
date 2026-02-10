@@ -1,0 +1,80 @@
+---
+import SectionWrapper from './ui/SectionWrapper.astro';
+import Card from './ui/Card.astro';
+---
+
+<SectionWrapper id="probleme">
+  <h2 class="text-center font-manrope font-semibold text-petrol text-2xl md:text-[30px] leading-tight mb-12">
+    Un constat partagé
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+    <Card>
+      <svg
+        slot="icon"
+        class="w-8 h-8 text-petrol"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <!-- Oeil barré -->
+        <path
+          d="M4 16C4 16 8 8 16 8C24 8 28 16 28 16C28 16 24 24 16 24C8 24 4 16 4 16Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="16"
+          cy="16"
+          r="3"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <path
+          d="M6 26L26 6"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span slot="title">Côté donateurs</span>
+      <span slot="content">
+        Difficile de savoir concrètement comment les fonds sont utilisés. Les rapports annuels arrivent tard, restent vagues, et la confiance repose sur la bonne foi.
+      </span>
+    </Card>
+
+    <Card>
+      <svg
+        slot="icon"
+        class="w-8 h-8 text-petrol"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <!-- Horloge -->
+        <circle
+          cx="16"
+          cy="16"
+          r="11"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <path
+          d="M16 10V16L20 18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span slot="title">Côté associations</span>
+      <span slot="content">
+        Le suivi et le reporting prennent du temps, au détriment du terrain. Les petites structures manquent d'outils adaptés pour justifier l'usage des fonds.
+      </span>
+    </Card>
+  </div>
+</SectionWrapper>

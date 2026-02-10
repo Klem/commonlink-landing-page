@@ -1,0 +1,50 @@
+---
+import SectionWrapper from './ui/SectionWrapper.astro';
+
+const steps = [
+  {
+    number: 1,
+    title: 'Publication',
+    description: 'Une association partenaire publie un budget et des étapes pour son projet.',
+  },
+  {
+    number: 2,
+    title: 'Enregistrement',
+    description: 'Les dépenses liées au projet sont enregistrées et rattachées à des justificatifs.',
+  },
+  {
+    number: 3,
+    title: 'Consultation',
+    description: 'Vous consultez un suivi clair : ce qui a été fait, quand, et avec quel montant.',
+  },
+];
+---
+
+<SectionWrapper id="comment-ca-marche">
+  <h2 class="text-center font-manrope font-semibold text-petrol text-2xl md:text-[30px] leading-tight mb-12">
+    Comment ça marche
+  </h2>
+
+  <div class="flex flex-col md:flex-row gap-8 md:gap-6 items-start">
+    {steps.map((step, index) => (
+      <div class="flex-1 relative">
+        {/* Connecteur horizontal entre les étapes (desktop uniquement) */}
+        {index < steps.length - 1 && (
+          <div class="hidden md:block absolute top-5 left-[calc(50%+20px)] right-0 h-0 border-t-2 border-dashed border-dark/15" />
+        )}
+
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+          <div class="w-10 h-10 bg-petrol text-white font-manrope font-bold flex items-center justify-center rounded-full mb-4">
+            {step.number}
+          </div>
+          <h3 class="font-manrope font-medium text-petrol text-lg mb-2">
+            {step.title}
+          </h3>
+          <p class="font-luciole text-dark/70 text-base leading-relaxed">
+            {step.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</SectionWrapper>

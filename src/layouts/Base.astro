@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -12,8 +13,40 @@ import '../styles/global.css';
       name="description"
       content="Suivez l'utilisation des fonds chez les associations partenaires, avec des preuves simples à consulter."
     />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Lien commun — Traçabilité des dépenses associatives" />
+    <meta property="og:description" content="Suivez l'utilisation des fonds chez les associations partenaires, avec des preuves simples à consulter." />
+    <meta property="og:type" content="website" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://liencommun.fr" />
   </head>
   <body class="bg-warm-gray text-dark font-luciole">
+    <!-- Skip to content link -->
+    <a href="#hero" class="sr-only sr-only-focusable">
+      Aller au contenu
+    </a>
+
     <slot />
+    <Footer />
+
+    <script>
+      const sections = document.querySelectorAll('.fade-in-section');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    </script>
   </body>
 </html>
